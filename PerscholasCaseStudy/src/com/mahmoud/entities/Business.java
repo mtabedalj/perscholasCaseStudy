@@ -23,7 +23,7 @@ import javax.persistence.OneToOne;
 
 public class Business implements Serializable {
 
-	@Id
+	@Id 
 	private String email;
  	private String password;
 

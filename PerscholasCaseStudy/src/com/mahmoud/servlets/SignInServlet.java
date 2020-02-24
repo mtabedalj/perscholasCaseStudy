@@ -37,9 +37,7 @@ public class SignInServlet extends HttpServlet {
 		if ((boolean) request.getAttribute("loggedIn")) {
 			Business business = new  Business();
 
-			business =  (Business) request.getAttribute("theBusiness");
-			request.setAttribute("theBus", business);
- 			rd = getServletContext().getRequestDispatcher("/GetServicesServlet");
+  			rd = getServletContext().getRequestDispatcher("/GetServicesServlet");
 			rd.forward(request, response);
 		} else {
 			

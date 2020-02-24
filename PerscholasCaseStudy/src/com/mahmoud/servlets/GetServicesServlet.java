@@ -36,9 +36,7 @@ public class GetServicesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Business business = new  Business();
 
-		business =  (Business) request.getAttribute("theBus");
-		request.setAttribute("theBus1", business);
-		ServiceService ss = new ServiceService();
+  		ServiceService ss = new ServiceService();
 	 
 		List<Service> allServices = new ArrayList<>();
 		allServices = ss.getAllServices();
@@ -48,9 +46,7 @@ public class GetServicesServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

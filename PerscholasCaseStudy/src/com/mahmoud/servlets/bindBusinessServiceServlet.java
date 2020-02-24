@@ -29,9 +29,6 @@ RequestDispatcher rd = getServletContext().getRequestDispatcher("/SignInModelSer
 			request.setAttribute("theBus", request.getAttribute("theBusiness"));
  			rd = getServletContext().getRequestDispatcher("/AddServiceServlet");
 			rd.forward(request, response);
-		
-		
-		
 	}
 
 	/**

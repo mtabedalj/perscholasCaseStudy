@@ -17,38 +17,37 @@
 
 <body>
 
-<%@ include file="busHeader.jsp" %>
+	<%@ include file="busHeader.jsp"%>
 
-			<div class="container-fluid d-flex justify-content-center ">
-				<div class="list-group w-50 p-3 d-flex justify-content-center">
-					<div class="d-flex flex-row">
-						<button type="button"
-							class="list-group-item list-group-item-action  bg-light" disabled>
-							Service List</button>
-					</div>
-
-
-					<div id="theServiceList">
-					
-								<c:forEach items="${allServices}" var="item">
-									<button  class='list-group-item list-group-item-action'>
- 										<span><c:out value="${item.serviceName}"></c:out></span><br>
-										<span><c:out value="${item.price}"></c:out></span>
-										 
-									</button>
-								</c:forEach>
-					
-					
-					</div>
-					<button type="button" id="addService"
-						class="list-group-item list-group-item-action d-flex justify-content-center text-primary">
-						<i class="material-icons text-primary " style="font-size: 26px;">add</i>Add
-						a new service
-					</button>
-
-				</div>
+	<div class="container-fluid d-flex justify-content-center ">
+		<div class="list-group w-50 p-3 d-flex justify-content-center">
+			<div class="d-flex flex-row">
+				<button type="button"
+					class="list-group-item list-group-item-action  bg-light" disabled>
+					Service List</button>
 			</div>
-	
+
+
+			<div id="theServiceList">
+				<form action="/PerscholasCaseStudy/AddServiceServlet">
+					<c:forEach items="${allServices}" var="item">
+						<button class='list-group-item list-group-item-action'>
+							<span name="nameVal"><c:out value="${item.serviceName}"></c:out></span><br>
+							<span name="priceVal"><c:out value="${item.price}"></c:out></span>
+
+						</button>
+					</c:forEach>
+				</form>
+			</div>
+			<button type="button" id="addService"
+				class="list-group-item list-group-item-action d-flex justify-content-center text-primary">
+				<i class="material-icons text-primary " style="font-size: 26px;">add</i>Add
+				a new service
+			</button>
+
+		</div>
+	</div>
+
 	<div class="modal" id="modal01" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -84,7 +83,7 @@
 		</div>
 	</div>
 
-	 <%@ include file="busFooter.jsp" %>
+	<%@ include file="busFooter.jsp"%>
 	<script>
 		$(document)
 				.ready(
