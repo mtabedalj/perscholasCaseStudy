@@ -33,13 +33,14 @@ public class AddServiceServlet extends HttpServlet {
 		Business business = new Business();
 		business = (Business) session.getAttribute("theBusiness");
 		BusinessService bs = new BusinessService();
-
+System.out.println("theEmail now is: "+business.getEmail());
 		String serviceName = request.getParameter("serviceName");
 		String servicePrice = request.getParameter("servicePrice");
 
 		ServiceService ss = new ServiceService();
 		List<Service> serviceList = new ArrayList<>();
-		serviceList = ss.getAllServices();
+		serviceList = ss.getAllServicesbyBusEmial(business.getEmail());
+		
 		request.setAttribute("serviceList", serviceList);
 		Service service = new Service(serviceName, Double.valueOf(servicePrice), business);
 

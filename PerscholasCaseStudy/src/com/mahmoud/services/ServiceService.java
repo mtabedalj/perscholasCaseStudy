@@ -20,16 +20,17 @@ public class ServiceService extends AbstractServices {
 	
 	 
 	
-	public List<Service> getAllServices() {
-		Query query = em.createNamedQuery("GetAllServices");
-		return query.getResultList();
-	}
+	public List<Service> getAllServicesbyBusEmial(String businessEmail) {
+		Query query = em.createNamedQuery("GetAllServicesbyBusEmial");
+		query.setParameter("bEmail", businessEmail);
+		return query.getResultList();	}
 	
 	public void removeService(Service service) {
 		em.getTransaction().begin();
 		em.remove(service);
 		em.getTransaction().commit();
 	}
+	
  
 
 	
