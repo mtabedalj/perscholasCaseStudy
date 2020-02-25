@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 /**
  * Entity implementation class for Entity: Business
  *
- */
+ */ 
 @Entity    
  @NamedQueries({ @NamedQuery(query = "Select b from Business b", name = "GetAllBusinesses"),
  	@NamedQuery(query = "Select b from Business b where b.email = :bEmail", name = "GetBusinessByEmail") ,
@@ -35,7 +35,7 @@ public class Business implements Serializable {
 	private String state;
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany (targetEntity = Service.class) 
+	@OneToMany (targetEntity = Service.class)  
 	private List <Service> serviceList;
 
 	@OneToMany (targetEntity = Promotions.class)

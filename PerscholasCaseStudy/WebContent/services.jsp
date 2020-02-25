@@ -19,98 +19,73 @@
 
 	<%@ include file="busHeader.jsp"%>
 
+
+	<form action="AddServiceServlet" method="post"
+		style="width: 75%; margin: 20px;" id="theForm">
+		<div class="form-group">
+
+			<label for="serviceName">Service Name</label> <select
+				class="selectpicker" name="serviceName" id="serviceName">
+				<option>Haircut</option>
+				<option>Shave</option>
+				<option>Beard trim</option>
+				<option>Hair color</option>
+				<option>Beard color</option>
+
+
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="exampleInputPassword1">Service Price</label> <input
+				type="text" class="form-control" id="exampleInputPassword1"
+				name="servicePrice">
+		</div>
+
+		<button type="button" class="btn btn-primary" OnClick ="checkVal()">Add Service</button>
+	</form>
+
+
+
+
 	<div class="container-fluid d-flex justify-content-center ">
 		<div class="list-group w-50 p-3 d-flex justify-content-center">
-			<div class="d-flex flex-row">
-				<button type="button"
-					class="list-group-item list-group-item-action  bg-light" disabled>
-					Service List</button>
-			</div>
-
-
 			<div id="theServiceList">
-				<form action="/PerscholasCaseStudy/AddServiceServlet">
+				<div class="list-group">
+
 					<c:forEach items="${allServices}" var="item">
-						<button class='list-group-item list-group-item-action'>
+
+						<button type="button"
+							class="list-group-item list-group-item-action">
 							<span name="nameVal"><c:out value="${item.serviceName}"></c:out></span><br>
 							<span name="priceVal"><c:out value="${item.price}"></c:out></span>
-
 						</button>
+
+
 					</c:forEach>
-				</form>
+				</div>
 			</div>
-			<button type="button" id="addService"
-				class="list-group-item list-group-item-action d-flex justify-content-center text-primary">
-				<i class="material-icons text-primary " style="font-size: 26px;">add</i>Add
-				a new service
-			</button>
 
 		</div>
 	</div>
 
-	<div class="modal" id="modal01" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">Modal title</h5>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<div class="form-group">
-						<form action="/PerscholasCaseStudy/AddServiceServlet"
-							method="POST">
 
-							<label for="serviceName" class="col-form-label">Service
-								Name:</label> <input type="text" class="form-control" id="serviceName"
-								name="serviceName"> <label for="servicePrice"
-								class="col-form-label">Service Price:</label> <input type="text"
-								class="form-control" id="servicePrice" name="servicePrice">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Close</button>
-							<button type="submit" class="btn btn-primary" id="saveChanges"
-								name="submit">Save changes</button>
-						</form>
-
-					</div>
-
-
-				</div>
-
-			</div>
-		</div>
-	</div>
 
 	<%@ include file="busFooter.jsp"%>
-	<script>
-		$(document)
-				.ready(
-						function() {
-							$("#addService")
-									.click(
-											function() {
 
-												$("#theServiceList")
-														.append(
-																"<button  class='list-group-item list-group-item-action'><span>Service Name</span> <br> <span>price</span></button>");
-											});
 
-						});
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#theServiceList").on('click', 'button', function() {
-				$("#theServiceList button").attr("data-toggle", "modal");
-				$("#theServiceList button").attr("data-target", "#modal01");
-
-			});
-		});
-	</script>
 
 	<script type="text/javascript">
-		
+		function checkVal(){
+			var val = document.getElementById("exampleInputPassword1").value;
+			if(val!=NaN && val>0){
+				document.getElementById("theForm").submit();
+
+			}
+			else
+				{
+				alert("Please Enter a valid value for the price");
+				}
+		}
 	</script>
 	<!-- Menu Toggle Script -->
 	<script>

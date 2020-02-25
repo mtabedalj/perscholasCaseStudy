@@ -25,12 +25,12 @@ public class ServiceService extends AbstractServices {
 		return query.getResultList();
 	}
 	
-	public void removeEmployee(Service service) {
+	public void removeService(Service service) {
 		em.getTransaction().begin();
 		em.remove(service);
 		em.getTransaction().commit();
 	}
-	
+ 
 
 	
 }

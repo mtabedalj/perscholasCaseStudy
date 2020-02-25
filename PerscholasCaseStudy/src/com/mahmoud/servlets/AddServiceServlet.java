@@ -36,15 +36,19 @@ public class AddServiceServlet extends HttpServlet {
 
 		String serviceName = request.getParameter("serviceName");
 		String servicePrice = request.getParameter("servicePrice");
-		 
 
 		ServiceService ss = new ServiceService();
 		List<Service> serviceList = new ArrayList<>();
 		serviceList = ss.getAllServices();
-
-	
-
+		request.setAttribute("serviceList", serviceList);
 		Service service = new Service(serviceName, Double.valueOf(servicePrice), business);
+
+		for (Service s : serviceList) {
+			if (s.getServiceName().equals(serviceName)) {
+				ss.removeService(s);
+			}
+		}
+
 		ss.addService(service);
 
 		rd = getServletContext().getRequestDispatcher("/GetServicesServlet");
