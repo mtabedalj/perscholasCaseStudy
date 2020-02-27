@@ -17,8 +17,7 @@
   <link href="./css/simple-sidebar.css" rel="stylesheet">
   <script src="./vendor/jquery/jquery.min.js"></script>
   <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-</head>
+<link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet"></head>
 
 <body>
 
@@ -26,7 +25,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
       <a class="navbar-brand" href="./index.jsp">
-      <img src="./trimmer.png" alt="" style="width: auto; height:80px"></a>
+      <img src="./assets/trimmer.png" alt="" style="width: auto; height:80px"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -40,7 +39,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Clinet</a>
+            <a class="nav-link" href="#">Client</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./login.jsp">Login</a>
@@ -55,7 +54,7 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
-          <h1 class="display-4 text-white mt-5 mb-2">How to maximize your benfits from our website</h1>
+          <h1 class="display-4 text-white mt-5 mb-2">How to maximize your benefits  from our website</h1>
           <p class="lead mb-5 text-white-50">This website allows you to manage your salon. Salons can post their profile, offers and promotions.
            Clients can locate their favorite salon on our website by simply looking them up by their name. Clients can see the salon information
            and get advantage of their specials and promotions.
@@ -94,7 +93,7 @@
         <abbr title="Phone"></abbr>
           (313) 695-5606
           <br>
-            <span class="oi oi-envelope-closed"></span>
+             <span class="oi oi-phone"></span>
           <abbr title="Email"></abbr>
           <a href="mailto:#">mabedalj@umich.edu</a>
         </address>

@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Business Page</title>
+<title>Service Page</title>
 
 
 </head>
@@ -21,7 +21,7 @@
 
 
 	<form action="AddServiceServlet" method="post"
-		style="width: 75%; margin: 20px;" id="theForm">
+		style="width: 25%; margin: 50px;" id="theForm">
 		<div class="form-group">
 
 			<label for="serviceName">Service Name</label> <select

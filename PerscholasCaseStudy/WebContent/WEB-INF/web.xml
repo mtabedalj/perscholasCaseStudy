@@ -33,4 +33,18 @@
     <servlet-name>GetServices</servlet-name>
     <url-pattern>/GetServicesServlet</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>GetPromotions</servlet-name>
+    <servlet-class>com.mahmoud.servlets.GetPromotionsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetPromotions</servlet-name>
+    <url-pattern>/GetPromotionsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
+
+
+
+
+

@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 import com.mahmoud.entities.Employees;
 import com.mahmoud.entities.Promotions;
+import com.mahmoud.entities.Service;
 
 public class PromotionsService extends AbstractServices {
 	public PromotionsService() {
@@ -23,6 +24,11 @@ public class PromotionsService extends AbstractServices {
 		query.setParameter("pName", PromotionName);
 		return query.getResultList();
 	}
+	
+	public List<Promotions> getAllPromotionsbyBusEmial(String businessEmail) {
+		Query query = em.createNamedQuery("GetAllPromotionsbyBusEmial");
+		query.setParameter("bEmail", businessEmail);
+		return query.getResultList();	}
 	
 	public List<Promotions> getAllPromotions() {
 		Query query = em.createNamedQuery("GetAllPromotions");

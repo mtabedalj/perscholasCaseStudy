@@ -10,7 +10,7 @@ FROM Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
  */
 @Entity
-@NamedQueries({ @NamedQuery(query = "Select s from Service s where s.business_email.email = :bEmail", name = "GetAllServicesbyBusEmial"),
+@NamedQueries({ @NamedQuery(query = "Select s from Service s where s.business.email = :bEmail", name = "GetAllServicesbyBusEmial"),
 	@NamedQuery(query = "Select s from Service s where s.serviceName = :sName", name = "GetServiceByName")		
 })
 public class Service implements Serializable {

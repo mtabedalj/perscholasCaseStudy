@@ -10,16 +10,21 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQueries({ @NamedQuery(query = "Select p from Promotions p", name = "GetAllPromotions"),
-	@NamedQuery(query = "Select p from Promotions p where p.promoName = :pName", name = "GetPromotionByName") })
+	@NamedQuery(query = "Select p from Promotions p where p.promoName = :pName", name = "GetPromotionByName"),
+	  @NamedQuery(query = "Select p from Promotions p where p.business.email = :bEmail", name = "GetAllPromotionsbyBusEmial")
+	})
 public class Promotions implements Serializable {
 
 	   
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int promoId;
 	private String promoName;
 	private String promoContent;
 	private String startDate; 
 	private String endDate;
+	@ManyToOne 
+	private Business business;
 	private static final long serialVersionUID = 1L;
 
 	public Promotions() {
@@ -32,23 +37,39 @@ public class Promotions implements Serializable {
 	 * @param startDate
 	 * @param endDate
 	 */
-	public Promotions(int promoId, String promoName,String promoContent, String startDate, String endDate) {
-		this.promoId = promoId;
-		this.promoName = promoName;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.promoContent = promoContent;
-	}
-   
-	public int getPromoId() {
-		return this.promoId;
-	}
-
-	public void setPromoId(int promoId) {
-		this.promoId = promoId;
-	}   
+	 
+      
 	public String getPromoName() {
 		return this.promoName;
+	}
+
+	/**
+	 * @return the business
+	 */
+	public Business getBusiness() {
+		return business;
+	}
+
+	/**
+	 * @param business the business to set
+	 */
+	public void setBusiness(Business business) {
+		this.business = business;
+	}
+
+	/**
+	 * @param promoName
+	 * @param promoContent
+	 * @param startDate
+	 * @param endDate
+	 * @param business
+	 */
+	public Promotions(String promoName, String promoContent, String startDate, String endDate, Business business) {
+		this.promoName = promoName;
+		this.promoContent = promoContent;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.business = business;
 	}
 
 	public void setPromoName(String promoName) {

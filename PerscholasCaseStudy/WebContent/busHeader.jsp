@@ -27,6 +27,7 @@
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+	
 
 
 
@@ -39,8 +40,8 @@
 		<!-- Sidebar -->
 		<div class="bg-light border-right" id="sidebar-wrapper">
 			<div class="list-group list-group-flush">
-				<a href="#" class="list-group-item list-group-item-action bg-light">Promotions</a>
-				<a href="./services.html"
+				<a href="./promotions.jsp" class="list-group-item list-group-item-action bg-light">Promotions</a>
+				<a href="./services.jsp"
 					class="list-group-item list-group-item-action bg-light">Services</a>
 				<a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
 				<a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
