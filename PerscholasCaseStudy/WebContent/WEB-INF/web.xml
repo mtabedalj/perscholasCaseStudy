@@ -33,8 +33,7 @@
     <servlet-name>GetServices</servlet-name>
     <url-pattern>/GetServicesServlet</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>GetPromotions</servlet-name>
     <servlet-class>com.mahmoud.servlets.GetPromotionsServlet</servlet-class>
   </servlet>
@@ -42,9 +41,14 @@
     <servlet-name>GetPromotions</servlet-name>
     <url-pattern>/GetPromotionsServlet</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>GetBusinessHours</servlet-name>
+    <servlet-class>com.mahmoud.servlets.GetBusinessHoursServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetBusinessHours</servlet-name>
+    <url-pattern>/GetBusinessHoursServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
-
-
-
 
 

@@ -10,7 +10,8 @@ import javax.persistence.*;
  */
 @Entity
 @NamedQueries({ @NamedQuery(query = "Select p from Promotions p", name = "GetAllPromotions"),
-	@NamedQuery(query = "Select p from Promotions p where p.promoName = :pName", name = "GetPromotionByName"),
+	@NamedQuery(query = "Select p from Promotions p where p.promoName = :pName", name = "GetPromotionsByName"),
+	@NamedQuery(query = "delete from Promotions p where p.promoName = :pName", name = "DeletePromotionByName"),
 	  @NamedQuery(query = "Select p from Promotions p where p.business.email = :bEmail", name = "GetAllPromotionsbyBusEmial")
 	})
 public class Promotions implements Serializable {

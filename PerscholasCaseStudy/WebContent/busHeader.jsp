@@ -40,13 +40,12 @@
 		<!-- Sidebar -->
 		<div class="bg-light border-right" id="sidebar-wrapper">
 			<div class="list-group list-group-flush">
-				<a href="./promotions.jsp" class="list-group-item list-group-item-action bg-light">Promotions</a>
-				<a href="./services.jsp"
+				<a href="${pageContext.request.contextPath}/GetPromotionsServlet" class="list-group-item list-group-item-action bg-light">Promotions</a>
+				<a href="${pageContext.request.contextPath}/GetServicesServlet"
 					class="list-group-item list-group-item-action bg-light">Services</a>
-				<a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-				<a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+				<a href="${pageContext.request.contextPath}/GetBusinessHoursServlet" class="list-group-item list-group-item-action bg-light">Business Hours</a>
 				<a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-				<a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+			
 			</div>
 		</div>
 		<!-- /#sidebar-wrapper -->
