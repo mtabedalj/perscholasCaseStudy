@@ -51,7 +51,12 @@ public class AddHoursServlet extends HttpServlet {
 			closeTimes.put(d, request.getParameter(d));
 		}
 		for (String d : shopStatus) {
-			shopOpenDays.put(d, request.getParameter(d));
+			if(request.getParameter(d)==null) {
+				shopOpenDays.put(d, "off");
+
+			}
+			else {shopOpenDays.put(d, "on");
+}
 		}
 System.out.println("im inthere"+shopOpenDays.toString());
 		BusinessHoursServic bhs = new BusinessHoursServic();

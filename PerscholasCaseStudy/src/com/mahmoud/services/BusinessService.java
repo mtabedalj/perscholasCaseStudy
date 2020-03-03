@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import com.mahmoud.entities.Business;
+import com.mahmoud.entities.Promotions;
 import com.mahmoud.entities.Service;
 
 public class BusinessService extends AbstractServices {
@@ -30,6 +31,7 @@ public class BusinessService extends AbstractServices {
 	}
 	public void updateBusiness(Business business) {
 		em.getTransaction().begin();
+		em.merge(business);
 		em.refresh(business);
 		em.getTransaction().commit();
 	}
@@ -37,5 +39,11 @@ public class BusinessService extends AbstractServices {
 		Query query = em.createNamedQuery("GetAllServicesForABusiness");
 		query.setParameter("bEmail", email);
 		return query.getResultList();
+	}
+	
+	public void removeBusiness(Business b) {
+		em.getTransaction().begin();
+		em.remove(b);
+		em.getTransaction().commit();
 	}
 }

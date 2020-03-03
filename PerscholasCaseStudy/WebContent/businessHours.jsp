@@ -41,8 +41,8 @@
 					<td><input type="time" class="selectpicker" name="SundayClose"  value = "${hoursList.getCloseTimes().get('SundayClose')}"
 						id="SundayClose"
 						style="border-radius: 3px; border: 1px solid gainsboro;"></td>
-						<td><input type="checkbox" class="checkbox" name="isSundayClose"   checked = "${checkStatus.get(0)}"
-						id="isSundayClose" onclick="handleClosingDays()"></td>
+						<td><input type="checkbox" class="checkbox" name="isSundayClose"  value = "${hoursList.getShopOpenDays().get('isSundayClose')}"
+						id="isSundayClose"  ></td>
 				</tr>
 				<tr> 
 					<td>Monday</td>
@@ -52,8 +52,8 @@
 					<td><input type="time" class="selectpicker" name="MondayClose" value = "${hoursList.getCloseTimes().get('MondayClose')}"
 						id="MondayClose"
 						style="border-radius: 3px; border: 1px solid gainsboro;"></td>
-						<td><input type="checkbox" class="checkbox" name="isMondayClose"  checked = "${checkStatus.get(1)}"
-						id="isMondayClose" onclick="handleClosingDays()"></td>
+						<td><input type="checkbox" class="checkbox" name="isMondayClose"  value = "${hoursList.getShopOpenDays().get('isMondayClose')}"
+						id="isMondayClose"  ></td>
 				</tr>
 				<tr>
 					<td>Tuesday</td>
@@ -63,8 +63,8 @@
 					<td><input type="time" class="selectpicker" value = "${hoursList.getCloseTimes().get('TuesdayClose')}"
 						name="TuesdayClose" id="TuesdayClose"
 						style="border-radius: 3px; border: 1px solid gainsboro;"></td>
-						<td><input type="checkbox" class="checkbox" name="isTuesdayClose"  checked = "${checkStatus.get(2)}"
-						id="isTuesdayClose" onclick="handleClosingDays()"></td>
+						<td><input type="checkbox" class="checkbox" name="isTuesdayClose"  value = "${hoursList.getShopOpenDays().get('isTuesdayClose')}"
+						id="isTuesdayClose"  ></td>
 				</tr>
 				<tr>
 					<td>Wednesday</td>
@@ -74,8 +74,8 @@
 					<td><input type="time" class="selectpicker" value = "${hoursList.getCloseTimes().get('WednesdayClose')}"
 						name="WednesdayClose" id="WednesdayClose"
 						style="border-radius: 3px; border: 1px solid gainsboro;"></td>
-						<td><input type="checkbox" class="checkbox" name="isWednesdayClose"  checked = "${checkStatus.get(3)}"
-						id="isWednesdayClose" onclick="handleClosingDays()"></td>
+						<td><input type="checkbox" class="checkbox" name="isWednesdayClose"  value = "${hoursList.getShopOpenDays().get('isWednesdayClose')}"
+						id="isWednesdayClose"  ></td>
 				</tr>
 				<tr>
 					<td>Thursday</td>
@@ -85,8 +85,8 @@
 					<td><input type="time" class="selectpicker" value = "${hoursList.getCloseTimes().get('ThursdayClose')}"
 						name="ThursdayClose" id="ThursdayClose"
 						style="border-radius: 3px; border: 1px solid gainsboro;"></td>
-						<td><input type="checkbox" class="checkbox" name="isThursdayClose" checked = "${checkStatus.get(4)}"
-						id="isThursdayClose" onclick="handleClosingDays()"></td>
+						<td><input type="checkbox" class="checkbox" name="isThursdayClose" value = "${hoursList.getShopOpenDays().get('isThursdayClose')}"
+						id="isThursdayClose" ></td>
 				</tr>
 				<tr>
 					<td>Friday</td>
@@ -96,8 +96,8 @@
 					<td><input type="time" class="selectpicker" name="FridayClose" value = "${hoursList.getCloseTimes().get('FridayClose')}"
 						id="FridayClose"
 						style="border-radius: 3px; border: 1px solid gainsboro;"></td>
-						<td><input type="checkbox" class="checkbox" name="isFridayClose"   checked = "${checkStatus.get(5)}"
-						id="isFridayClose" onclick="handleClosingDays()"></td>
+						<td><input type="checkbox" class="checkbox" name="isFridayClose"   value = "${hoursList.getShopOpenDays().get('isFridayClose')}"
+						id="isFridayClose"  ></td>
 				</tr>
 				<tr>
 					<td>Saturday</td>
@@ -107,14 +107,18 @@
 					<td><input type="time" class="selectpicker" value = "${hoursList.getCloseTimes().get('SaturdayClose')}"
 						name="SaturdayClose" id="SaturdayClose"
 						style="border-radius: 3px; border: 1px solid gainsboro;"></td>
-							<td><input type="checkbox" class="checkbox" name="isSaturdayClose"  checked = "${checkStatus.get(6)}"
-						id="isSaturdayClose" onclick="handleClosingDays()"></td>
+							<td><input type="checkbox" class="checkbox" name="isSaturdayClose"  value = "${hoursList.getShopOpenDays().get('isSaturdayClose')}"
+						id="isSaturdayClose"  ></td>
 						</tr>
 			</tbody>
 		</table>
 
 
-		<button type="submit" class="btn btn-primary">Set Hours</button>
+		<button type="submit" class="btn btn-primary">Set Hours</button><br><br>
+		<div class = "row">
+				<div style="height:15px;width:15px;background-color:FireBrick; margin-top:3px;margin-right:5px"></div><span>This color indicates shop off days</span>
+		
+		</div>
 	</form>
 
 
@@ -129,28 +133,46 @@
 		});
 	</script>
 	<script type="text/javascript">
-	function handleClosingDays(){
-		var days = ["isSundayClose","isMondayClose","isTuesdayClose","isWednesdayClose","isThursdayClose","isFridayClose","isSaturdayClose"];
-		var open = ["SundayOpen","MondayOpen","TuesdayOpen","WednesdayOpen","ThursdayOpen","FridayOpen","SaturdayOpen"];
-		var close = ["SundayClose","MondayClose","TuesdayClose","WednesdayClose","ThursdayClose","FridayClose","SaturdayClose"];
+//	function handleClosingDays(){
+//		var days = ["isSundayClose","isMondayClose","isTuesdayClose","isWednesdayClose","isThursdayClose","isFridayClose","isSaturdayClose"];
+//		var open = ["SundayOpen","MondayOpen","TuesdayOpen","WednesdayOpen","ThursdayOpen","FridayOpen","SaturdayOpen"];
+//		var close = ["SundayClose","MondayClose","TuesdayClose","WednesdayClose","ThursdayClose","FridayClose","SaturdayClose"];
 
 
+	//	for(var i = 0; i<days.length;i++){
+	//		if(document.getElementById(days[i]).checked){
+	//			document.getElementById(open[i]).style.visibility = "hidden";
+	//			document.getElementById(close[i]).style.visibility = "hidden";
+
+	//		}
+	//		else{
+		//		document.getElementById(open[i]).style.visibility = "visible";
+		//		document.getElementById(close[i]).style.visibility = "visible";
+
+		//	}
+			
+		//}
+		
+	//}
+	//
+	</script>
+	<script>
+	var days = ["isSundayClose","isMondayClose","isTuesdayClose","isWednesdayClose","isThursdayClose","isFridayClose","isSaturdayClose"];
+
+	window.addEventListener('load',function(){
 		for(var i = 0; i<days.length;i++){
-			if(document.getElementById(days[i]).checked){
-				document.getElementById(open[i]).style.visibility = "hidden";
-				document.getElementById(close[i]).style.visibility = "hidden";
+		var checkVal = document.getElementById(days[i]).value;
+ 		if(checkVal==="on"){
+ 			document.getElementById(days[i]).parentElement.parentElement.style.backgroundColor  = "FireBrick";
+		}
+ 		else{
+ 			console.log("hm");
 
-			}
-			else{
-				document.getElementById(open[i]).style.visibility = "visible";
-				document.getElementById(close[i]).style.visibility = "visible";
-
-			}
+ 		}
 			
 		}
 		
-	}
-	
+	});
 	</script>
 </body>
 
