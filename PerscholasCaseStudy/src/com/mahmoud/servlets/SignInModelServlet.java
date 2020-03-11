@@ -66,6 +66,8 @@ public class SignInModelServlet extends HttpServlet {
 			if (cli.getEmail().equals(user) && cli.getPassword().equals(pass)) {
 				request.setAttribute("loggedIn", true);
 				request.setAttribute("clientType", true);
+				session.setAttribute("theClient", cli);
+
 
 				break;
 			}

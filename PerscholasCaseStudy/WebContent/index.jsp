@@ -34,28 +34,33 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="./business.jsp">Business
-              <span class="sr-only">(current)</span>
-            </a>
+         <a href="${pageContext.request.contextPath}/GetBusinessServlet"
+					  class="nav-link">Business</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Client</a>
+            <a class="nav-link" href="${pageContext.request.contextPath}/GetBusinessServlet"
+            >Client</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./login.jsp">Login</a>
+            <a class="nav-link" href="${pageContext.request.contextPath}/GetClientService">Login</a>
           </li>
-        </ul>
+        </ul> 
       </div>
     </div>
   </nav>
 
   <!-- Header -->
-  <header class="bg-success py-5 mb-5">
+  <header class="bg py-5 mb-5" style="background-image: url('assets/bg.jpg');     background-size:100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    height:620px
+    ">
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
-          <h1 class="display-4 text-white mt-5 mb-2">How to maximize your benefits  from our website</h1>
-          <p class="lead mb-5 text-white-50">This website allows you to manage your salon. Salons can post their profile, offers and promotions.
+          <h1 class="display-4 text-light mt-5 mb-2">How to maximize your benefits  from our website</h1>
+          <p class="lead mb-5 text-light">This website allows you to manage your salon. Salons can post their profile, offers and promotions.
            Clients can locate their favorite salon on our website by simply looking them up by their name. Clients can see the salon information
            and get advantage of their specials and promotions.
 
@@ -76,8 +81,7 @@
         <p>We value the relationship between businesses and clients and we believe that this platform allows you to strengthen that relationship even more. By creating a profile,
          your clients can know about your salon, the services you provide, hours of operation and current promotions offered by you.
         On the other hand, clients get to know more about their salon</p>
-        <a class="btn btn-primary btn-lg" href="./html/login.jsp">I am a business &raquo;</a>
-          <a class="btn btn-primary btn-lg" href="#">I am a client &raquo;</a>
+    
 
       </div>
       <div class="col-md-4 mb-5">
@@ -148,7 +152,7 @@
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; MahmoudAjawad 2019</p>
+      <p class="m-0 text-center text-white">Copyright &copy; MahmoudAjawad 2020</p>
     </div>
     <!-- /.container -->
   </footer>

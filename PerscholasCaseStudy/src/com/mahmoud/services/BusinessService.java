@@ -25,14 +25,20 @@ public class BusinessService extends AbstractServices {
 		return query.getResultList();
 	}
 	
+	public List<Business> getBusinessByName(String name) {
+		Query query = em.createNamedQuery("GetBusinessByName");
+		query.setParameter("name", name);
+		return query.getResultList();
+	}
+	
 	public List<Business> getAllBusinesses() {
 		Query query = em.createNamedQuery("GetAllBusinesses");
 		return query.getResultList();
 	}
 	public void updateBusiness(Business business) {
 		em.getTransaction().begin();
-		em.merge(business);
-		em.refresh(business);
+		Business b = em.find(Business.class, business.getEmail());
+		b.update(business);
 		em.getTransaction().commit();
 	}
 	public List<Service> getAllServicesForABusiness(String email) {

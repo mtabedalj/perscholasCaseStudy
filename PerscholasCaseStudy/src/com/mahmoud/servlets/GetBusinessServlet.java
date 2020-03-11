@@ -30,6 +30,11 @@ public class GetBusinessServlet extends HttpServlet {
 
 		Business business = new Business();
 		business = (Business) session.getAttribute("theBusiness");
+		if(business==null) {
+			RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
+			rd.forward(request, response);
+		}
+		else {
 		BusinessService bs = new BusinessService();
 	
 		
@@ -41,7 +46,7 @@ public class GetBusinessServlet extends HttpServlet {
 		request.setAttribute("businessList", businessList.get(0));
  		}
  		RequestDispatcher rd = getServletContext().getRequestDispatcher("/business.jsp");
-		rd.forward(request, response);	}
+		rd.forward(request, response);	}}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -46,29 +46,30 @@ System.out.println("theEmail now is: "+business.getEmail());
 		String addressLine = request.getParameter("addressLine");
 		String city = request.getParameter("city");
 		String state = request.getParameter("state");
-		String zipcode = request.getParameter("zipcode");
+	//	String profile_pic = request.getParameter("profile_pic");
+	//	String zipcode = request.getParameter("zipcode");
 		
 		
-		PromotionsService ps = new PromotionsService();
-		List<Promotions> promotionList = new ArrayList<>();
-		promotionList = ps.getAllPromotionsbyBusEmial(business.getEmail());
+//		PromotionsService ps = new PromotionsService();
+//		List<Promotions> promotionList = new ArrayList<>();
+//		promotionList = ps.getAllPromotionsbyBusEmial(business.getEmail());
+//		
+//  		ServiceService ss = new ServiceService();
+//		List<Service> allServices = new ArrayList<>();
+//		allServices = ss.getAllServicesbyBusEmial(business.getEmail());
+//
+//		
+//		BusinessHoursServic bhs = new BusinessHoursServic();
+//		List<BusinessHours> businessHoursList = new ArrayList<>();
+//		businessHoursList = bhs.getAllBusinessHoursbyBusEmial(business.getEmail());
+//		BusinessHours businessHours = new BusinessHours();
+//		if(!businessHoursList.isEmpty())
+//		{  
+//			  businessHours = businessHoursList.get(0);
+//			
+//		}
 		
-  		ServiceService ss = new ServiceService();
-		List<Service> allServices = new ArrayList<>();
-		allServices = ss.getAllServicesbyBusEmial(business.getEmail());
-
-		
-		BusinessHoursServic bhs = new BusinessHoursServic();
-		List<BusinessHours> businessHoursList = new ArrayList<>();
-		businessHoursList = bhs.getAllBusinessHoursbyBusEmial(business.getEmail());
-		BusinessHours businessHours = new BusinessHours();
-		if(!businessHoursList.isEmpty())
-		{  
-			  businessHours = businessHoursList.get(0);
-			
-		}
-		
-		Business newBusiness = new Business(business.getPassword(),business.getEmail(),name,about,phone,addressLine,city,state,allServices,promotionList,null,businessHours,null);
+		Business newBusiness = new Business(business.getPassword(),business.getEmail(),name,about,phone,addressLine,city,state,null,null,null,null,null);
 		List<Business> businessList = new ArrayList<>();
  		businessList = bs.getBusinessByEmail(business.getEmail());
  		 

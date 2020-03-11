@@ -49,7 +49,7 @@ public class SignInServlet extends HttpServlet {
      else if((boolean) request.getAttribute("clientType")) {
 		if ((boolean) request.getAttribute("loggedIn")) {
 		 
-			rd = getServletContext().getRequestDispatcher("/client.jsp");
+			rd = getServletContext().getRequestDispatcher("/GetClientService");
 			rd.forward(request, response);
 		} else {
 			

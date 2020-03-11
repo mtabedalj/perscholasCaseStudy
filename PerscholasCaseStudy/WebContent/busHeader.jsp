@@ -48,7 +48,7 @@
 					class="list-group-item list-group-item-action bg-light">Services</a>
 				<a href="${pageContext.request.contextPath}/GetBusinessHoursServlet"
 					class="list-group-item list-group-item-action bg-light">Business
-					Hours</a> <a href="#"
+					Hours</a> <a href="${pageContext.request.contextPath}/GetProfile"
 					class="list-group-item list-group-item-action bg-light">Profile</a>
 
 			</div>
@@ -74,7 +74,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 					<li class="nav-item active"><a class="nav-link text-light"
-						href="#">Logout <span class="sr-only">(current)</span></a></li>
+						href="${pageContext.request.contextPath}/LogoutServlet">Logout <span class="sr-only">(current)</span></a></li>
 				</ul>
 			</div>
 			</nav>

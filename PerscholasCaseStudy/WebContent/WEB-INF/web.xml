@@ -49,14 +49,46 @@
     <servlet-name>GetBusinessHours</servlet-name>
     <url-pattern>/GetBusinessHoursServlet</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <servlet-name>GetBusiness</servlet-name>
     <servlet-class>com.mahmoud.servlets.GetBusinessServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>GetBusiness</servlet-name>
     <url-pattern>/GetBusinessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>getProfile</servlet-name>
+    <servlet-class>com.mahmoud.servlets.GetProfile</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getProfile</servlet-name>
+    <url-pattern>/GetProfile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>logoutServlet</servlet-name>
+    <servlet-class>com.mahmoud.servlets.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutServlet</servlet-name>
+    <url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewBusiness</servlet-name>
+    <servlet-class>com.mahmoud.servlets.ViewBusinessServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewBusiness</servlet-name>
+    <url-pattern>/ViewBusinessServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>getClientService</servlet-name>
+    <servlet-class>com.mahmoud.servlets.GetClientService</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getClientService</servlet-name>
+    <url-pattern>/GetClientService</url-pattern>
   </servlet-mapping>
 </web-app>
 

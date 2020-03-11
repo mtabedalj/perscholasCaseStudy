@@ -1,14 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Client Page</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
@@ -38,45 +43,69 @@
 
 			<nav
 				class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-
-			<form class="bd-search d-flex align-items-center">
-				<span class="algolia-autocomplete"
-					style="position: relative; display: inline-block; direction: ltr;"><input
-					type="search" class="form-control ds-input" id="search-input"
-					placeholder="Search..." aria-label="Search for..."
-					autocomplete="off" spellcheck="false" role="combobox"
-					aria-autocomplete="list" aria-expanded="false"
-					aria-owns="algolia-autocomplete-listbox-0" dir="auto"
-					style="position: relative; vertical-align: top;">
-				<pre aria-hidden="true"
-						style="position: absolute; visibility: hidden; white-space: pre; font-family: -apple-system, BlinkMacSystemFont,&amp; quot; Segoe UI&amp;quot; , Roboto , &amp;quot; Helvetica Neue&amp;quot; , Arial , sans-serif, &amp;quot; Apple Color Emoji&amp;quot; , &amp; quot; Segoe UI Emoji&amp;quot; , &amp; quot; Segoe UI Symbol&amp;quot;; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span
-					class="ds-dropdown-menu" role="listbox"
-					id="algolia-autocomplete-listbox-0"
-					style="position: absolute; top: 100%; z-index: 100; left: 0px; right: auto; display: none;"><div
-							class="ds-dataset-1"></div></span></span>
-				<button
-					class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3"
-					type="button" data-toggle="collapse" data-target="#bd-docs-nav"
-					aria-controls="bd-docs-nav" aria-expanded="false"
-					aria-label="Toggle docs navigation">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30"
-						width="30" height="30" focusable="false">
-					<title>Menu</title>
-					<path stroke="currentColor" stroke-width="2" stroke-linecap="round"
-						stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path></svg>
-				</button>
+			<form action="LookUpServlet" method="post"
+				style="margin-left: 90px; width: 340px;">
+				<input style="width: 70%;" type="text" class="form-control"
+					name="busName" id="busName" placeholder="Enter Business Name"
+					aria-label="Username" aria-describedby="basic-addon1">
 			</form>
-
-
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
 					<li class="nav-item active"><a class="nav-link text-light"
-						href="#">Logout <span class="sr-only">(current)</span></a></li>
+						href="${pageContext.request.contextPath}/LogoutServlet">Logout
+							<span class="sr-only">(current)</span>
+					</a></li>
 				</ul>
 			</div>
 			</nav>
-			<%@ include file="busFooter.jsp"%>
+
+			<header class="bg py-5 mb-5"
+				style="background-image: url('assets/s6.jpg');     background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+    height:620px
+    ">
+			<div class="container h-100">
+				<div class="row h-100 align-items-center">
+					<div class="col-lg-12">
+
+
+						</p>
+					</div>
+				</div>
+			</div>
+			</header>
+			<span class="d-flex justify-content-center">${emptyList}</span>
+
+			<div>
+				<c:forEach items="${businessList}" var="item">
+
+					<div class="d-flex justify-content-center" style="height:300px">
+						<form action="ViewBusinessServlet" method="post">
+						<input type="hidden" name="emailVal"  value="${item.email}">
+							<button class="btn-light">
+
+								<span><c:out value="${item.name}"></c:out></span><br> <span><c:out
+										value="${item.phone}"></c:out></span>
+
+
+							</button>
+						</form>
+					</div>
+
+
+
+				</c:forEach>
+			</div>
+
 
 
 			<!-- Menu Toggle Script -->

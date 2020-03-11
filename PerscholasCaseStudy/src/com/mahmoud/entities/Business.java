@@ -18,6 +18,8 @@ import javax.persistence.OneToOne;
 @Entity    
  @NamedQueries({ @NamedQuery(query = "Select b from Business b", name = "GetAllBusinesses"),
  	@NamedQuery(query = "Select b from Business b where b.email = :bEmail", name = "GetBusinessByEmail") ,
+ 	@NamedQuery(query = "Select b from Business b where b.name = :name", name = "GetBusinessByName") ,
+
  	//@NamedQuery(query = "Select s from Service s INNER JOIN business_service bs ON s.serviceId = bs.serviceList_SERVICEID INNER JOIN Business b ON bs.Business_EMAIL= :bEmail ", name = "GetAllServicesForABusiness")
  })
 
@@ -93,6 +95,22 @@ public class Business implements Serializable {
 		this.accountType = "business";
 	}
 
+	public void update(Business b) {
+ 		this.password = b.getPassword();
+		this.email = b.getEmail();
+		this.name = b.getName();
+		this.aboutSection = b.getAboutSection();
+		this.phone = b.getPhone();
+		this.addressLine = b.getAddressLine();
+		this.city = b.getCity();
+		this.state = b.getState();
+		this.serviceList = b.getServiceList();
+		this.promotionList = b.getPromotionList();
+		this.employeesList = b.getEmployeesList();
+		this.businessHours = b.getBusinessHours();
+		this.reviewList = b.getReviewList();
+		this.accountType = "business";
+	}
  
 	/**
 	 * @return the serviceList
