@@ -34,7 +34,7 @@ public class SignInServlet extends HttpServlet {
 		
 		rd.include(request, response);
      if((boolean) request.getAttribute("businessType")) {
-		if ((boolean) request.getAttribute("loggedIn")) {
+		if ((boolean) request.getAttribute("bloggedIn")) {
 			Business business = new  Business();
 
   			rd = getServletContext().getRequestDispatcher("/GetServicesServlet");
@@ -47,7 +47,7 @@ public class SignInServlet extends HttpServlet {
 		}
      }
      else if((boolean) request.getAttribute("clientType")) {
-		if ((boolean) request.getAttribute("loggedIn")) {
+		if ((boolean) request.getAttribute("cloggedIn")) {
 		 
 			rd = getServletContext().getRequestDispatcher("/GetClientService");
 			rd.forward(request, response);
@@ -58,6 +58,9 @@ public class SignInServlet extends HttpServlet {
 			rd.forward(request, response);
 		}
      }
+     else
+     {	rd = getServletContext().getRequestDispatcher("/login.jsp");
+		rd.forward(request, response);}
      
 	}
 

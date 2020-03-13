@@ -41,7 +41,8 @@ public class SignInModelServlet extends HttpServlet {
 		String user = request.getParameter("inputEmail");
 		String pass = request.getParameter("inputPassword");
 		request.setAttribute("userEmail", user);
-		request.setAttribute("loggedIn", false);
+		request.setAttribute("bloggedIn", false);
+		request.setAttribute("cloggedIn", false);
 		request.setAttribute("businessType", false);
 		request.setAttribute("clientType", false);
 		Business businessObject = new Business();
@@ -55,7 +56,7 @@ public class SignInModelServlet extends HttpServlet {
 			if (busin.getEmail().equals(user) && busin.getPassword().equals(pass)) {
 				session.setAttribute("theBusiness", busin);
 				System.out.println("business value"+ busin);
-				request.setAttribute("loggedIn", true);
+				request.setAttribute("bloggedIn", true);
 				request.setAttribute("businessType", true);
 
 				break;     
@@ -64,7 +65,7 @@ public class SignInModelServlet extends HttpServlet {
 
 		for (Client cli : client) {
 			if (cli.getEmail().equals(user) && cli.getPassword().equals(pass)) {
-				request.setAttribute("loggedIn", true);
+				request.setAttribute("cloggedIn", true);
 				request.setAttribute("clientType", true);
 				session.setAttribute("theClient", cli);
 

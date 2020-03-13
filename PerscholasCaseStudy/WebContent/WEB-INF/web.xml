@@ -81,7 +81,6 @@
     <servlet-name>viewBusiness</servlet-name>
     <url-pattern>/ViewBusinessServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>getClientService</servlet-name>
     <servlet-class>com.mahmoud.servlets.GetClientService</servlet-class>
@@ -91,6 +90,3 @@
     <url-pattern>/GetClientService</url-pattern>
   </servlet-mapping>
 </web-app>
-
-
-
